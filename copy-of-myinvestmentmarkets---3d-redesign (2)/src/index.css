@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* 
+       Global Zoom Control:
+       Reduced from 56.25% (9px) to 45% (7.2px) to achieve ~80% scale reduction requested.
+       1rem will equal approx 7.2px on laptops.
+    */
+    font-size: 45%; 
+  }
+
+  @media (max-width: 1024px) {
+    html {
+      font-size: 70%; /* Tablet */
+    }
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 85%; /* Mobile */
+    }
+  }
+
+  @media (min-width: 1920px) {
+    html {
+      font-size: 50%; /* Large Screens */
+    }
+  }
+
+  /* Language-specific Word Break Fix */
+  :lang(ko) {
+    word-break: keep-all; 
+    overflow-wrap: break-word;
+  }
+  
+  :not(:lang(ko)) {
+    word-break: break-word;
+  }
+
+  body {
+    /* Apply neutral dark theme base */
+    background-color: #0a0a0a;
+    color: #fafafa;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; 
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505; 
+}
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
